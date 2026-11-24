@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>FON Movies</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  @font-face{font-family:Battambang;src:url(fonts/Battambang-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+  @font-face{font-family:Battambang;src:url(fonts/Battambang-Bold.ttf) format("truetype");font-weight:700;font-display:swap}
+  @font-face{font-family:Moul;src:url(fonts/Moul-Regular.ttf) format("truetype");font-display:swap}
+  :root{--bg:#0d0a0b;--card:#1a1214;--line:#2c1f22;--gold:#e8be5c;--gold2:#ffdf8c;--red:#c4161c;--txt:#f5ece4;--mut:#a89a90}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;background:var(--bg);color:var(--txt);font-family:Battambang,'Noto Sans Khmer','Khmer OS',system-ui,sans-serif}
+  header{position:sticky;top:0;z-index:5;background:linear-gradient(180deg,#1b0d0f 0%,#0d0a0bf2 100%);padding:12px 14px 0;
+    border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand b{font-family:Moul,serif;font-weight:400;color:var(--gold2);font-size:19px;letter-spacing:.5px}
+  .brand small{color:var(--mut);font-size:11px;display:block}
+  .search{margin:10px 0 8px;display:flex;background:#1f1517;border:1px solid var(--line);border-radius:12px;padding:8px 12px;gap:8px}
+  .search input{flex:1;background:none;border:0;outline:0;color:var(--txt);font:inherit;font-size:14px}
+  nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+  nav button{flex:1;min-width:max-content;border:1px solid var(--line);background:#160f11;color:var(--mut);padding:9px 12px;
+    border-radius:999px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap}
+  nav button.on{background:linear-gradient(180deg,#d9a441,#b37a1c);color:#1b0f05;border-color:#e8be5c}
+  nav .n{font-size:11px;opacity:.75;margin-left:4px}
+  main{padding:12px 12px 90px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:12px}
+  .card{position:relative;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--line);cursor:pointer;
+    transition:transform .12s}
+  .card:active{transform:scale(.97)}
+  .poster{aspect-ratio:2/3;width:100%;object-fit:cover;display:block;background:linear-gradient(160deg,#3a1418,#120a0c)}
+  .ph{aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;
+    font-family:Moul,serif;color:var(--gold);font-size:13px;line-height:1.6;background:linear-gradient(160deg,#4a1218,#130a0c)}
+  .meta{padding:7px 8px 9px}
+  .meta .t{font-size:12.5px;font-weight:700;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .meta .e{font-size:11px;color:var(--mut);margin-top:2px}
+  .badge{position:absolute;top:6px;left:6px;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:6px;background:var(--red);color:#fff}
+  .badge.free{background:#1f7a3a}
+  .empty{color:var(--mut);text-align:center;padding:60px 20px;font-size:14px}
+  /* series sheet */
+  .sheet{position:fixed;inset:0;z-index:20;background:#000c;display:none;align-items:flex-end}
+  .sheet.on{display:flex}
+  .box{width:100%;max-height:88vh;overflow:auto;background:#140d0f;border-top:1px solid var(--gold);border-radius:18px 18px 0 0;padding:16px 14px 26px}
+  .top{display:flex;gap:12px}
+  .top img,.top .ph{width:96px;flex:none;border-radius:10px}
+  .top h2{font-size:16px;margin:2px 0 4px;line-height:1.5}
+  .top .en{color:var(--mut);font-size:12px}
+  .info{font-size:12.5px;color:var(--gold2);margin-top:8px;line-height:1.6}
+  .parts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:14px}
+  .part{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:#1d1416;border-radius:10px;padding:10px;cursor:pointer;
+    font:inherit;color:var(--txt);text-align:left}
+  .part .ic{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--gold);color:#1b0f05;flex:none;font-size:13px}
+  .part.lock .ic{background:#3a2a2d;color:var(--gold)}
+  .part b{display:block;font-size:13.5px}
+  .part small{color:var(--mut);font-size:11px}
+  .buy{margin-top:14px;width:100%;border:0;border-radius:12px;padding:13px;font:inherit;font-weight:700;font-size:15px;
+    background:linear-gradient(180deg,#e2b04f,#b9801f);color:#1b0f05;cursor:pointer}
+  .close{float:right;background:none;border:0;color:var(--mut);font-size:22px;cursor:pointer;margin:-6px -4px 0 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div><b>FON Movies</b><small>រឿងចិននិយាយខ្មែរ · Chinese dramas dubbed in Khmer</small></div>
+  </div>
+  <label class="search">🔍<input id="q" placeholder="ស្វែងរករឿង..." autocomplete="off"></label>
+  <nav id="tabs"></nav>
+</header>
+<main><div class="grid" id="grid"></div><div class="empty" id="empty" hidden>មិនទាន់មានរឿងនៅទីនេះទេ។</div></main>
+<div class="sheet" id="sheet"><div class="box" id="box"></div></div>
+<script>
+const tg = window.Telegram && Telegram.WebApp;
+if (tg) { tg.ready(); tg.expand(); try { tg.setHeaderColor('#1b0d0f'); tg.setBackgroundColor('#0d0a0b'); } catch(e){} }
+let DATA = {series:[], tabs:{}}, TAB = 'new';
+const ORDER = ['new','ancient','modern'];
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function open(payload){
+  const url = `https://t.me/${DATA.bot}?start=${payload}`;
+  if (tg && tg.openTelegramLink) { tg.openTelegramLink(url); tg.close && setTimeout(()=>tg.close(), 300); }
+  else location.href = url;
+}
+function poster(s, cls){
+  return s.poster ? `<img class="${cls||'poster'}" loading="lazy" src="${esc(s.poster)}" alt="">`
+                  : `<div class="ph">${esc(s.title)}</div>`;
+}
+function tabs(){
+  const n = t => DATA.series.filter(s => s.tab === t).length;
+  if (!n(TAB)) TAB = ORDER.find(t => n(t)) || 'new';
+  $('#tabs').innerHTML = ORDER.map(t => `<button class="${t===TAB?'on':''}" data-t="${t}">${
+    t==='new'?'🔥 ':t==='ancient'?'🏯 ':'🏙 '}${esc(DATA.tabs[t]||t)}<span class="n">${n(t)}</span></button>`).join('');
+  document.querySelectorAll('nav button').forEach(b => b.onclick = () => { TAB = b.dataset.t; tabs(); grid(); scrollTo(0,0); });
+}
+function grid(){
+  const q = $('#q').value.trim().toLowerCase();
+  const list = DATA.series.filter(s => q ? (s.title+' '+s.title_en).toLowerCase().includes(q) : s.tab === TAB)
+                          .sort((a,b) => b.added - a.added);
+  $('#empty').hidden = list.length > 0;
+  $('#grid').innerHTML = list.map(s => `<div class="card" data-c="${esc(s.code)}">${poster(s)}
+      ${s.tab==='new' ? `<span class="badge">ថ្មី</span>` : `<span class="badge free">ឥតគិតថ្លៃ</span>`}
+      <div class="meta"><div class="t">${esc(s.title)}</div><div class="e">${s.eps ? s.eps+' ភាគ' : ''} · ${s.parts.length} វីដេអូ</div></div></div>`).join('');
+  document.querySelectorAll('.card').forEach(c => c.onclick = () => sheet(c.dataset.c));
+}
+function sheet(code){
+  const s = DATA.series.find(x => x.code === code); if (!s) return;
+  const anyLock = s.parts.some(p => p.locked);
+  $('#box').innerHTML = `<button class="close" onclick="hide()">✕</button>
+    <div class="top">${poster(s)}<div><h2>${esc(s.title)}</h2><div class="en">${esc(s.title_en)}</div>
+      <div class="info">${s.eps ? '🎞 '+s.eps+' ភាគ · ' : ''}${s.parts.length} វីដេអូ<br>${
+        s.tab==='new' ? `🆓 ភាគ 1-${s.free_eps} ឥតគិតថ្លៃ<br>⏳ មើលទាំងអស់ឥតគិតថ្លៃពីថ្ងៃ ${esc(s.free_on)}` : '🆓 មើលឥតគិតថ្លៃគ្រប់ភាគ'}</div></div></div>
+    <div class="parts">${s.parts.map(p => `<button class="part ${p.locked?'lock':''}" data-n="${p.n}">
+        <span class="ic">${p.locked?'🔒':'▶'}</span><span><b>វីដេអូទី ${p.n}</b><small>${p.eps ? 'ភាគ '+esc(p.eps) : ''}${p.min ? ' · '+p.min+' នាទី' : ''}</small></span></button>`).join('')}</div>
+    ${anyLock ? `<button class="buy" onclick="open('buy_${esc(s.code)}')">🔓 មើលទាំងអស់ឥឡូវនេះ — ${esc(s.price)} (KHQR)</button>` : ''}`;
+  document.querySelectorAll('.part').forEach(b => b.onclick = () => {
+    const p = s.parts.find(x => x.n == b.dataset.n);
+    open(p.locked ? `buy_${s.code}` : `w_${s.code}_${p.n}`);
+  });
+  $('#sheet').classList.add('on');
+  if (tg && tg.BackButton) { tg.BackButton.show(); tg.BackButton.onClick(hide); }
+}
+function hide(){ $('#sheet').classList.remove('on'); if (tg && tg.BackButton) tg.BackButton.hide(); }
+$('#sheet').onclick = e => { if (e.target.id === 'sheet') hide(); };
+$('#q').oninput = grid;
+fetch('catalog.json?v=' + Date.now()).then(r => r.json()).then(d => { DATA = d; tabs(); grid(); })
+  .catch(() => { $('#empty').hidden = false; $('#empty').textContent = 'មិនអាចទាញយកបញ្ជីរឿងបានទេ។ សូមសាកម្ដងទៀត។'; });
+</script>
+</body>
+</html>
