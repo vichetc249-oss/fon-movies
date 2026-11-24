@@ -47,6 +47,9 @@
   .top h2{font-size:16px;margin:2px 0 4px;line-height:1.5}
   .top .en{color:var(--mut);font-size:12px}
   .info{font-size:12.5px;color:var(--gold2);margin-top:8px;line-height:1.6}
+  .seasons{display:flex;gap:6px;overflow-x:auto;margin-top:14px;padding-bottom:2px}
+  .seasons button{flex:none;border:1px solid var(--line);background:#160f11;color:var(--mut);padding:8px 14px;border-radius:999px;font:inherit;font-size:14px;cursor:pointer}
+  .seasons button.on{background:linear-gradient(180deg,#d9a441,#b37a1c);color:#1b0f05;border-color:#e8be5c;font-weight:700}
   .parts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:14px}
   .part{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:#1d1416;border-radius:10px;padding:10px;cursor:pointer;
     font:inherit;color:var(--txt);text-align:left}
@@ -95,20 +98,27 @@ function poster(s, cls){
                   : `<div class="ph">${esc(s.title)}</div>`;
 }
 function tabs(){
-  const n = t => DATA.series.filter(s => s.tab === t).length;
+  const n = t => new Set(DATA.series.filter(s => s.tab === t).map(s => s.show || s.code)).size;   // shows, not seasons
   if (!n(TAB)) TAB = ORDER.find(t => n(t)) || 'new';
   $('#tabs').innerHTML = ORDER.map(t => `<button class="${t===TAB?'on':''}" data-t="${t}">${
     t==='new'?'🔥 ':t==='ancient'?'🏯 ':'🏙 '}${esc(DATA.tabs[t]||t)}<span class="n">${n(t)}</span></button>`).join('');
   document.querySelectorAll('nav button').forEach(b => b.onclick = () => { TAB = b.dataset.t; tabs(); grid(); scrollTo(0,0); });
 }
+const showOf = s => s.show || s.code;
+const seasonsOf = s => DATA.series.filter(x => showOf(x) === showOf(s)).sort((a,b) => (a.season||0) - (b.season||0));
+const sname = (s, i) => `រដូវកាលទី ${s.season || i + 1}`;
 function grid(){
   const q = $('#q').value.trim().toLowerCase();
-  const list = DATA.series.filter(s => q ? (s.title+' '+s.title_en).toLowerCase().includes(q) : s.tab === TAB)
-                          .sort((a,b) => b.added - a.added);
+  const hits = DATA.series.filter(s => q ? (s.title+' '+s.title_en).toLowerCase().includes(q) : s.tab === TAB);
+  const best = {};                       // one card per show: its newest season here
+  hits.forEach(s => { const k = showOf(s); if (!best[k] || (s.season||0) > (best[k].season||0)) best[k] = s; });
+  const list = Object.values(best).sort((a,b) => b.added - a.added);
   $('#empty').hidden = list.length > 0;
-  $('#grid').innerHTML = list.map(s => `<div class="card" data-c="${esc(s.code)}">${poster(s)}
+  $('#grid').innerHTML = list.map(s => { const n = seasonsOf(s).length;
+    return `<div class="card" data-c="${esc(s.code)}">${poster(s)}
       ${s.tab==='new' ? `<span class="badge">ថ្មី</span>` : `<span class="badge free">ឥតគិតថ្លៃ</span>`}
-      <div class="meta"><div class="t">${esc(s.title)}</div><div class="e">${s.eps ? s.eps+' ភាគ' : ''} · ${s.parts.length} វីដេអូ</div></div></div>`).join('');
+      <div class="meta"><div class="t">${esc(s.title)}</div><div class="e">${n > 1 ? n+' រដូវកាល · ' : (s.season ? sname(s,0)+' · ' : '')}${
+        s.eps ? s.eps+' ភាគ' : s.parts.length+' វីដេអូ'}</div></div></div>`; }).join('');
   document.querySelectorAll('.card').forEach(c => c.onclick = () => sheet(c.dataset.c));
 }
 function sheet(code){
@@ -118,6 +128,8 @@ function sheet(code){
     <div class="top">${poster(s)}<div><h2>${esc(s.title)}</h2><div class="en">${esc(s.title_en)}</div>
       <div class="info">${s.eps ? '🎞 '+s.eps+' ភាគ · ' : ''}${s.parts.length} វីដេអូ<br>${
         s.tab==='new' ? `🆓 ភាគ 1-${s.free_eps} ឥតគិតថ្លៃ<br>⏳ មើលទាំងអស់ឥតគិតថ្លៃពីថ្ងៃ ${esc(s.free_on)}` : '🆓 មើលឥតគិតថ្លៃគ្រប់ភាគ'}</div></div></div>
+    ${(() => { const ss = seasonsOf(s); return ss.length > 1 ? `<div class="seasons">${ss.map((x, i) =>
+        `<button class="${x.code===s.code?'on':''}" onclick="sheet('${esc(x.code)}')">${sname(x, i)}</button>`).join('')}</div>` : ''; })()}
     <div class="parts">${s.parts.map(p => `<button class="part ${p.locked?'lock':''}" data-n="${p.n}">
         <span class="ic">${p.locked?'🔒':'▶'}</span><span><b>វីដេអូទី ${p.n}</b><small>${p.eps ? 'ភាគ '+esc(p.eps) : ''}${p.min ? ' · '+p.min+' នាទី' : ''}</small></span></button>`).join('')}</div>
     ${anyLock ? `<button class="buy" onclick="open('buy_${esc(s.code)}')">🔓 មើលទាំងអស់ឥឡូវនេះ — ${esc(s.price)} (KHQR)</button>` : ''}`;
