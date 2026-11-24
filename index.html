@@ -77,10 +77,18 @@ const ORDER = ['new','ancient','modern'];
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
+let ASKED = false;
 function open(payload){
   const url = `https://t.me/${DATA.bot}?start=${payload}`;
-  if (tg && tg.openTelegramLink) { tg.openTelegramLink(url); tg.close && setTimeout(()=>tg.close(), 300); }
-  else location.href = url;
+  if (tg && tg.openTelegramLink) {
+    const go = () => { tg.openTelegramLink(url); tg.close && setTimeout(()=>tg.close(), 300); };
+    // the bot may only send a video to someone who allowed it: ask once, inside the app (no separate Start)
+    if (!ASKED && tg.requestWriteAccess && tg.isVersionAtLeast && tg.isVersionAtLeast('6.9')) {
+      ASKED = true;
+      try { tg.requestWriteAccess(() => go()); return; } catch(e) {}
+    }
+    go();
+  } else location.href = url;
 }
 function poster(s, cls){
   return s.poster ? `<img class="${cls||'poster'}" loading="lazy" src="${esc(s.poster)}" alt="">`
@@ -123,7 +131,15 @@ function sheet(code){
 function hide(){ $('#sheet').classList.remove('on'); if (tg && tg.BackButton) tg.BackButton.hide(); }
 $('#sheet').onclick = e => { if (e.target.id === 'sheet') hide(); };
 $('#q').oninput = grid;
-fetch('catalog.json?v=' + Date.now()).then(r => r.json()).then(d => { DATA = d; tabs(); grid(); })
+// a link straight to one series: t.me/<bot>?startapp=S1 (inside Telegram) or ...github.io/fon-movies/?s=S1 (any browser)
+const START = ((tg && tg.initDataUnsafe && tg.initDataUnsafe.start_param) || new URLSearchParams(location.search).get('s') || '').toUpperCase();
+fetch('catalog.json?v=' + Date.now()).then(r => r.json()).then(d => {
+    DATA = d;
+    const s0 = DATA.series.find(x => x.code === START);
+    if (s0) TAB = s0.tab;
+    tabs(); grid();
+    if (s0) sheet(s0.code);
+  })
   .catch(() => { $('#empty').hidden = false; $('#empty').textContent = 'មិនអាចទាញយកបញ្ជីរឿងបានទេ។ សូមសាកម្ដងទៀត។'; });
 </script>
 </body>
