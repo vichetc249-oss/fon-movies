@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <title>FON Movies</title>
+<meta name="description" content="រឿងចិននិយាយខ្មែរ មើលឥតគិតថ្លៃលើ Telegram — Chinese dramas dubbed in Khmer">
+<meta property="og:title" content="FON Movies — រឿងចិននិយាយខ្មែរ">
+<meta property="og:description" content="រឿងចិននិយាយខ្មែរ មើលឥតគិតថ្លៃលើ Telegram · រឿងបុរាណ · រឿងសម័យ · រឿងថ្មី">
+<meta property="og:type" content="website">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
   @font-face{font-family:Battambang;src:url(fonts/Battambang-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
@@ -57,6 +61,16 @@
   .part.lock .ic{background:#3a2a2d;color:var(--gold)}
   .part b{display:block;font-size:13.5px}
   .part small{color:var(--mut);font-size:11px}
+  .nums{margin-top:6px;font-size:13px;color:#f3d38a}
+  .e.st{color:#e9c46a}
+  #members{color:#e9c46a;margin-top:2px}
+  .talk{margin-top:10px;width:100%;border:1px solid var(--line);background:#160f11;color:var(--txt);border-radius:12px;padding:12px;font:inherit;font-size:15px;cursor:pointer}
+  .shr.top{position:absolute;right:14px;top:14px;border:1px solid var(--line);background:#160f11;color:var(--txt);border-radius:10px;padding:6px 10px;font-size:18px;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
+  .shr.top span{font-size:14px;color:var(--gold2)}
+  header .brand{padding-right:118px}
+  .ways{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+  .way{border:1px solid var(--line);background:#160f11;color:var(--txt);border-radius:12px;padding:13px;font:inherit;font-size:15px;cursor:pointer}
+  .lnk{margin-top:12px;width:100%;box-sizing:border-box;background:#0d0a0b;color:var(--mut);border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;font-size:13px}
   .buy{margin-top:14px;width:100%;border:0;border-radius:12px;padding:13px;font:inherit;font-weight:700;font-size:15px;
     background:linear-gradient(180deg,#e2b04f,#b9801f);color:#1b0f05;cursor:pointer}
   .close{float:right;background:none;border:0;color:var(--mut);font-size:22px;cursor:pointer;margin:-6px -4px 0 0}
@@ -64,14 +78,16 @@
 </head>
 <body>
 <header>
+  <button class="shr top" onclick="share()" aria-label="share">📤 <span>ចែករំលែក</span></button>
   <div class="brand">
-    <div><b>FON Movies</b><small>រឿងចិននិយាយខ្មែរ · Chinese dramas dubbed in Khmer</small></div>
+    <div><b>FON Movies</b><small>រឿងចិននិយាយខ្មែរ · Chinese dramas dubbed in Khmer</small><small id="members"></small></div>
   </div>
   <label class="search">🔍<input id="q" placeholder="ស្វែងរករឿង..." autocomplete="off"></label>
   <nav id="tabs"></nav>
 </header>
 <main><div class="grid" id="grid"></div><div class="empty" id="empty" hidden>មិនទាន់មានរឿងនៅទីនេះទេ។</div></main>
 <div class="sheet" id="sheet"><div class="box" id="box"></div></div>
+<div class="sheet" id="share"><div class="box" id="sbox"></div></div>
 <script>
 const tg = window.Telegram && Telegram.WebApp;
 if (tg) { tg.ready(); tg.expand(); try { tg.setHeaderColor('#1b0d0f'); tg.setBackgroundColor('#0d0a0b'); } catch(e){} }
@@ -118,21 +134,65 @@ function grid(){
     return `<div class="card" data-c="${esc(s.code)}">${poster(s)}
       ${s.tab==='new' ? `<span class="badge">ថ្មី</span>` : `<span class="badge free">ឥតគិតថ្លៃ</span>`}
       <div class="meta"><div class="t">${esc(s.title)}</div><div class="e">${n > 1 ? n+' រដូវកាល · ' : (s.season ? sname(s,0)+' · ' : '')}${
-        s.eps ? s.eps+' ភាគ' : s.parts.length+' វីដេអូ'}</div></div></div>`; }).join('');
+        s.eps ? s.eps+' ភាគ' : s.parts.length+' វីដេអូ'}</div>${(t => t ? `<div class="e st">${t}</div>` : '')(stats(total(s)))}</div></div>`; }).join('');
   document.querySelectorAll('.card').forEach(c => c.onclick = () => sheet(c.dataset.c));
+}
+const fmt = n => n >= 1e6 ? (n/1e6).toFixed(1).replace(/\.0$/,'')+'M' : n >= 1e3 ? (n/1e3).toFixed(1).replace(/\.0$/,'')+'K' : String(n||0);
+const stats = s => [s.views ? '👁 '+fmt(s.views) : '', s.likes ? '❤️ '+fmt(s.likes) : '', s.comments ? '💬 '+fmt(s.comments) : '']
+                    .filter(Boolean).join(' · ');
+const total = s => seasonsOf(s).reduce((t, x) => ({views: t.views + (x.views||0), likes: t.likes + (x.likes||0),
+                                                   comments: t.comments + (x.comments||0)}), {views: 0, likes: 0, comments: 0});   // the whole show on its card
+// ---------- sharing: a link that shows the poster + title on Facebook / Messenger / Telegram, then opens this app
+function base(){ return location.href.split(/[?#]/)[0].replace(/index\.html$/, ''); }
+function share(code){
+  const s = code && DATA.series.find(x => x.code === code);
+  const url = s ? `${base()}s/${s.code}.html` : base();
+  const text = s ? `🎬 ${s.title} — រឿងចិននិយាយខ្មែរ មើលឥតគិតថ្លៃ` : '🎬 FON Movies — រឿងចិននិយាយខ្មែរ មើលឥតគិតថ្លៃ';
+  const u = encodeURIComponent(url), t = encodeURIComponent(text);
+  const ways = [
+    ['✈️ Telegram', `https://t.me/share/url?url=${u}&text=${t}`, true],
+    ['📘 Facebook', `https://www.facebook.com/sharer/sharer.php?u=${u}`],
+    ['💬 Messenger', `fb-messenger://share/?link=${u}`],
+    ['🟢 LINE', `https://social-plugins.line.me/lineit/share?url=${u}`],
+    ['𝕏 X', `https://twitter.com/intent/tweet?url=${u}&text=${t}`],
+  ];
+  $('#sbox').innerHTML = `<button class="close" onclick="$('#share').classList.remove('on')">✕</button>
+    <h2>📤 ចែករំលែក</h2><div class="en">${esc(s ? s.title : 'FON Movies')}</div>
+    <div class="ways">${ways.map(([n, href, tgl], i) => `<button class="way" data-i="${i}">${n}</button>`).join('')}
+      <button class="way" id="copy">🔗 ចម្លងតំណ</button>${navigator.share ? '<button class="way" id="more">⋯ ផ្សេងៗ</button>' : ''}</div>
+    <input class="lnk" value="${esc(url)}" readonly onclick="this.select()">`;
+  document.querySelectorAll('.way[data-i]').forEach(b => b.onclick = () => {
+    const [, href, tgl] = ways[+b.dataset.i];
+    if (href.startsWith('fb-messenger:')) { location.href = href; return; }          // the Messenger app on the phone
+    if (tg && tgl && tg.openTelegramLink) tg.openTelegramLink(href);
+    else if (tg && tg.openLink) tg.openLink(href); else window.open(href, '_blank');
+  });
+  $('#copy').onclick = async () => {
+    try { await navigator.clipboard.writeText(url); } catch(e) { const i = $('.lnk'); i.select(); document.execCommand('copy'); }
+    $('#copy').textContent = '✅ បានចម្លង';
+  };
+  if ($('#more')) $('#more').onclick = () => navigator.share({title: text, text, url}).catch(() => {});
+  $('#share').classList.add('on');
+}
+function comments(post){                     // the channel post's comment thread (Telegram's own comments)
+  const url = `https://t.me/${DATA.channel}/${post}?comment=1`;
+  if (tg && tg.openTelegramLink) tg.openTelegramLink(url); else location.href = url;
 }
 function sheet(code){
   const s = DATA.series.find(x => x.code === code); if (!s) return;
   const anyLock = s.parts.some(p => p.locked);
   $('#box').innerHTML = `<button class="close" onclick="hide()">✕</button>
     <div class="top">${poster(s)}<div><h2>${esc(s.title)}</h2><div class="en">${esc(s.title_en)}</div>
+      <div class="nums">${stats(s)}</div>
       <div class="info">${s.eps ? '🎞 '+s.eps+' ភាគ · ' : ''}${s.parts.length} វីដេអូ<br>${
         s.tab==='new' ? `🆓 ភាគ 1-${s.free_eps} ឥតគិតថ្លៃ<br>⏳ មើលទាំងអស់ឥតគិតថ្លៃពីថ្ងៃ ${esc(s.free_on)}` : '🆓 មើលឥតគិតថ្លៃគ្រប់ភាគ'}</div></div></div>
     ${(() => { const ss = seasonsOf(s); return ss.length > 1 ? `<div class="seasons">${ss.map((x, i) =>
         `<button class="${x.code===s.code?'on':''}" onclick="sheet('${esc(x.code)}')">${sname(x, i)}</button>`).join('')}</div>` : ''; })()}
     <div class="parts">${s.parts.map(p => `<button class="part ${p.locked?'lock':''}" data-n="${p.n}">
         <span class="ic">${p.locked?'🔒':'▶'}</span><span><b>វីដេអូទី ${p.n}</b><small>${p.eps ? 'ភាគ '+esc(p.eps) : ''}${p.min ? ' · '+p.min+' នាទី' : ''}</small></span></button>`).join('')}</div>
-    ${anyLock ? `<button class="buy" onclick="open('buy_${esc(s.code)}')">🔓 មើលទាំងអស់ឥឡូវនេះ — ${esc(s.price)} (KHQR)</button>` : ''}`;
+    ${anyLock ? `<button class="buy" onclick="open('buy_${esc(s.code)}')">🔓 មើលទាំងអស់ឥឡូវនេះ — ${esc(s.price)} (KHQR)</button>` : ''}
+    <button class="talk" onclick="share('${esc(s.code)}')">📤 ចែករំលែករឿងនេះ — Facebook · Telegram · Messenger…</button>
+    ${s.post && DATA.channel ? `<button class="talk" onclick="comments(${s.post})">💬 មតិយោបល់${s.comments ? ' ('+fmt(s.comments)+')' : ''} — សរសេរមតិ</button>` : ''}`;
   document.querySelectorAll('.part').forEach(b => b.onclick = () => {
     const p = s.parts.find(x => x.n == b.dataset.n);
     open(p.locked ? `buy_${s.code}` : `w_${s.code}_${p.n}`);
@@ -142,11 +202,13 @@ function sheet(code){
 }
 function hide(){ $('#sheet').classList.remove('on'); if (tg && tg.BackButton) tg.BackButton.hide(); }
 $('#sheet').onclick = e => { if (e.target.id === 'sheet') hide(); };
+$('#share').onclick = e => { if (e.target.id === 'share') $('#share').classList.remove('on'); };
 $('#q').oninput = grid;
 // a link straight to one series: t.me/<bot>?startapp=S1 (inside Telegram) or ...github.io/fon-movies/?s=S1 (any browser)
 const START = ((tg && tg.initDataUnsafe && tg.initDataUnsafe.start_param) || new URLSearchParams(location.search).get('s') || '').toUpperCase();
 fetch('catalog.json?v=' + Date.now()).then(r => r.json()).then(d => {
     DATA = d;
+    if (DATA.members) $('#members').textContent = `👥 ${fmt(DATA.members)} នាក់បានចូលរួម` + (DATA.channel ? ` · @${DATA.channel}` : '');
     const s0 = DATA.series.find(x => x.code === START);
     if (s0) TAB = s0.tab;
     tabs(); grid();
