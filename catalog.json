@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795499118,
+ "updated": 1795499639,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -19,6 +19,8 @@
    "price": null,
    "free_on": null,
    "added": 1795476445,
+   "show": "S1",
+   "season": 0,
    "parts": [
     {
      "n": 1,
