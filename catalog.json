@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795593621,
+ "updated": 1795593701,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S7",
+   "title": "ព្រះអង្គម្ចាស់ទី6 នគរមហាឈាន",
+   "title_en": "",
+   "intro": "",
+   "tab": "ancient",
+   "poster": "posters/S7.jpg",
+   "eps": 20,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795593621,
+   "show": "S7",
+   "season": 2,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-20",
+     "min": 17,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S6",
    "title": "អ្នកប្រុសទី៤",
