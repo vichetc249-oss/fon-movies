@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-<title>FON Movies</title>
+<title>FON Movies App</title>
 <meta name="description" content="រឿងចិននិយាយខ្មែរ មើលឥតគិតថ្លៃលើ Telegram — Chinese dramas dubbed in Khmer">
-<meta property="og:title" content="FON Movies — រឿងចិននិយាយខ្មែរ">
+<meta property="og:title" content="FON Movies App — រឿងចិននិយាយខ្មែរ">
 <meta property="og:description" content="រឿងចិននិយាយខ្មែរ មើលឥតគិតថ្លៃលើ Telegram · រឿងបុរាណ · រឿងសម័យ · រឿងថ្មី">
 <meta property="og:type" content="website">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -16,7 +16,7 @@
   :root{--bg:#0d0a0b;--card:#1a1214;--line:#2c1f22;--gold:#e8be5c;--gold2:#ffdf8c;--red:#c4161c;--txt:#f5ece4;--mut:#a89a90}
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;background:var(--bg);color:var(--txt);font-family:Battambang,'Noto Sans Khmer','Khmer OS',system-ui,sans-serif}
-  header{position:sticky;top:0;z-index:5;background:linear-gradient(180deg,#1b0d0f 0%,#0d0a0bf2 100%);padding:12px 14px 0;
+  header{position:sticky;top:0;z-index:5;background:linear-gradient(180deg,#1b0d0f 0%,#0d0a0bf2 100%);padding:calc(12px + var(--top,0px)) 14px 0;
     border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
   .brand{display:flex;align-items:center;gap:10px}
   .brand b{font-family:Moul,serif;font-weight:400;color:var(--gold2);font-size:19px;letter-spacing:.5px}
@@ -43,7 +43,7 @@
   .badge.free{background:#1f7a3a}
   .empty{color:var(--mut);text-align:center;padding:60px 20px;font-size:14px}
   /* series sheet */
-  .sheet{position:fixed;inset:0;z-index:20;background:#000c;display:none;align-items:flex-end}
+  .sheet{position:fixed;inset:0;z-index:20;background:#000c;display:none;align-items:flex-end;padding-top:var(--top,0px)}
   .sheet.on{display:flex}
   .box{width:100%;max-height:88vh;overflow:auto;background:#140d0f;border-top:1px solid var(--gold);border-radius:18px 18px 0 0;padding:16px 14px 26px}
   .top{display:flex;gap:12px}
@@ -65,7 +65,7 @@
   .e.st{color:#e9c46a}
   #members{color:#e9c46a;margin-top:2px}
   .talk{margin-top:10px;width:100%;border:1px solid var(--line);background:#160f11;color:var(--txt);border-radius:12px;padding:12px;font:inherit;font-size:15px;cursor:pointer}
-  .shr.top{position:absolute;right:14px;top:14px;border:1px solid var(--line);background:#160f11;color:var(--txt);border-radius:10px;padding:6px 10px;font-size:18px;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
+  .shr.top{position:absolute;right:14px;top:calc(14px + var(--top,0px));border:1px solid var(--line);background:#160f11;color:var(--txt);border-radius:10px;padding:6px 10px;font-size:18px;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
   .shr.top span{font-size:14px;color:var(--gold2)}
   header .brand{padding-right:118px}
   .ways{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
@@ -80,7 +80,7 @@
 <header>
   <button class="shr top" onclick="share()" aria-label="share">📤 <span>ចែករំលែក</span></button>
   <div class="brand">
-    <div><b>FON Movies</b><small>រឿងចិននិយាយខ្មែរ · Chinese dramas dubbed in Khmer</small><small id="members"></small></div>
+    <div><b>FON Movies App</b><small>រឿងចិននិយាយខ្មែរ ថ្មីៗចេញជារៀងរាល់ថ្ងៃ</small><small>សូមចែករំលែកបើពេញចិត្ត អរគុណ!</small><small id="members"></small></div>
   </div>
   <label class="search">🔍<input id="q" placeholder="ស្វែងរករឿង..." autocomplete="off"></label>
   <nav id="tabs"></nav>
@@ -91,6 +91,16 @@
 <script>
 const tg = window.Telegram && Telegram.WebApp;
 if (tg) { tg.ready(); tg.expand(); try { tg.setHeaderColor('#1b0d0f'); tg.setBackgroundColor('#0d0a0b'); } catch(e){} }
+// full screen hides Telegram's title bar (the bot's name); leave room for the phone's status bar + Telegram's ✕ / ⋮ buttons
+function topRoom(){
+  const a = (tg.safeAreaInset && tg.safeAreaInset.top) || 0, b = (tg.contentSafeAreaInset && tg.contentSafeAreaInset.top) || 0;
+  document.documentElement.style.setProperty('--top', (tg.isFullscreen ? a + b : 0) + 'px');
+}
+if (tg && tg.isVersionAtLeast && tg.isVersionAtLeast('8.0') && tg.requestFullscreen && /android|iphone|ipad/i.test(navigator.userAgent)) {
+  ['fullscreenChanged','safeAreaChanged','contentSafeAreaChanged'].forEach(e => tg.onEvent(e, topRoom));
+  try { tg.requestFullscreen(); } catch(e) {}
+  topRoom();
+}
 let DATA = {series:[], tabs:{}}, TAB = 'new';
 const ORDER = ['new','ancient','modern'];
 const $ = s => document.querySelector(s);
@@ -147,7 +157,7 @@ function base(){ return location.href.split(/[?#]/)[0].replace(/index\.html$/, '
 function share(code){
   const s = code && DATA.series.find(x => x.code === code);
   const url = s ? `${base()}s/${s.code}.html` : base();
-  const text = s ? `🎬 ${s.title} — រឿងចិននិយាយខ្មែរ មើលឥតគិតថ្លៃ` : '🎬 FON Movies — រឿងចិននិយាយខ្មែរ មើលឥតគិតថ្លៃ';
+  const text = s ? `🎬 ${s.title} — រឿងចិននិយាយខ្មែរ មើលឥតគិតថ្លៃ` : '🎬 FON Movies App — រឿងចិននិយាយខ្មែរ មើលឥតគិតថ្លៃ';
   const u = encodeURIComponent(url), t = encodeURIComponent(text);
   const ways = [
     ['✈️ Telegram', `https://t.me/share/url?url=${u}&text=${t}`, true],
@@ -157,7 +167,7 @@ function share(code){
     ['𝕏 X', `https://twitter.com/intent/tweet?url=${u}&text=${t}`],
   ];
   $('#sbox').innerHTML = `<button class="close" onclick="$('#share').classList.remove('on')">✕</button>
-    <h2>📤 ចែករំលែក</h2><div class="en">${esc(s ? s.title : 'FON Movies')}</div>
+    <h2>📤 ចែករំលែក</h2><div class="en">${esc(s ? s.title : 'FON Movies App')}</div>
     <div class="ways">${ways.map(([n, href, tgl], i) => `<button class="way" data-i="${i}">${n}</button>`).join('')}
       <button class="way" id="copy">🔗 ចម្លងតំណ</button>${navigator.share ? '<button class="way" id="more">⋯ ផ្សេងៗ</button>' : ''}</div>
     <input class="lnk" value="${esc(url)}" readonly onclick="this.select()">`;
@@ -213,7 +223,7 @@ function load(first){
   return fetch('catalog.json?v=' + Date.now()).then(r => r.json()).then(d => {
     if (!first && d.updated === DATA.updated) return;
     DATA = d;
-    if (DATA.members) $('#members').textContent = `👥 ${fmt(DATA.members)} នាក់បានចូលរួម` + (DATA.channel ? ` · @${DATA.channel}` : '');
+    if (DATA.members) $('#members').textContent = `👥 ${fmt(DATA.members)} នាក់បានចូលរួម` ;
     if (first) {
       const s0 = DATA.series.find(x => x.code === START);
       if (s0) TAB = s0.tab;
