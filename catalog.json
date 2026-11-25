@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795607360,
+ "updated": 1795607416,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -65,6 +65,12 @@
     {
      "n": 7,
      "eps": "118-136",
+     "min": 15,
+     "locked": false
+    },
+    {
+     "n": 8,
+     "eps": "137-155",
      "min": 15,
      "locked": false
     }
