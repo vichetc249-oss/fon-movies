@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795583863,
+ "updated": 1795583927,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S12",
+   "title": "អ្នកប្រុសទី៤",
+   "title_en": "",
+   "intro": "",
+   "tab": "ancient",
+   "poster": "posters/S12.jpg",
+   "eps": 20,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795583813,
+   "show": "S32",
+   "season": 1,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-20",
+     "min": 28,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S32",
    "title": "អ្នកប្រុសទី៤",
