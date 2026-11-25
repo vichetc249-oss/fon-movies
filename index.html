@@ -178,7 +178,9 @@ function comments(post){                     // the channel post's comment threa
   const url = `https://t.me/${DATA.channel}/${post}?comment=1`;
   if (tg && tg.openTelegramLink) tg.openTelegramLink(url); else location.href = url;
 }
+let SHEET = '';                          // the series open now (kept open when the list refreshes)
 function sheet(code){
+  SHEET = code;
   const s = DATA.series.find(x => x.code === code); if (!s) return;
   const anyLock = s.parts.some(p => p.locked);
   $('#box').innerHTML = `<button class="close" onclick="hide()">✕</button>
@@ -200,21 +202,35 @@ function sheet(code){
   $('#sheet').classList.add('on');
   if (tg && tg.BackButton) { tg.BackButton.show(); tg.BackButton.onClick(hide); }
 }
-function hide(){ $('#sheet').classList.remove('on'); if (tg && tg.BackButton) tg.BackButton.hide(); }
+function hide(){ SHEET = ''; $('#sheet').classList.remove('on'); if (tg && tg.BackButton) tg.BackButton.hide(); }
 $('#sheet').onclick = e => { if (e.target.id === 'sheet') hide(); };
 $('#share').onclick = e => { if (e.target.id === 'share') $('#share').classList.remove('on'); };
 $('#q').oninput = grid;
 // a link straight to one series: t.me/<bot>?startapp=S1 (inside Telegram) or ...github.io/fon-movies/?s=S1 (any browser)
 const START = ((tg && tg.initDataUnsafe && tg.initDataUnsafe.start_param) || new URLSearchParams(location.search).get('s') || '').toUpperCase();
-fetch('catalog.json?v=' + Date.now()).then(r => r.json()).then(d => {
+// the list refreshes by itself: when the Mini App comes back on screen and every minute (new Parts show without reopening it)
+function load(first){
+  return fetch('catalog.json?v=' + Date.now()).then(r => r.json()).then(d => {
+    if (!first && d.updated === DATA.updated) return;
     DATA = d;
     if (DATA.members) $('#members').textContent = `👥 ${fmt(DATA.members)} នាក់បានចូលរួម` + (DATA.channel ? ` · @${DATA.channel}` : '');
-    const s0 = DATA.series.find(x => x.code === START);
-    if (s0) TAB = s0.tab;
-    tabs(); grid();
-    if (s0) sheet(s0.code);
+    if (first) {
+      const s0 = DATA.series.find(x => x.code === START);
+      if (s0) TAB = s0.tab;
+      tabs(); grid();
+      if (s0) sheet(s0.code);
+    } else {
+      tabs(); grid();
+      if (SHEET && $('#sheet').classList.contains('on') && DATA.series.find(x => x.code === SHEET)) sheet(SHEET);
+    }
   })
-  .catch(() => { $('#empty').hidden = false; $('#empty').textContent = 'មិនអាចទាញយកបញ្ជីរឿងបានទេ។ សូមសាកម្ដងទៀត។'; });
+  .catch(() => { if (first) { $('#empty').hidden = false; $('#empty').textContent = 'មិនអាចទាញយកបញ្ជីរឿងបានទេ។ សូមសាកម្ដងទៀត។'; } });
+}
+load(true);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) load(false); });
+window.addEventListener('focus', () => load(false));
+try { if (tg && tg.onEvent) tg.onEvent('activated', () => load(false)); } catch (e) {}
+setInterval(() => { if (!document.hidden) load(false); }, 60000);
 </script>
 </body>
 </html>
