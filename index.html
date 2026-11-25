@@ -128,7 +128,7 @@ function grid(){
   const hits = DATA.series.filter(s => q ? (s.title+' '+s.title_en).toLowerCase().includes(q) : s.tab === TAB);
   const best = {};                       // one card per show: its newest season here
   hits.forEach(s => { const k = showOf(s); if (!best[k] || (s.season||0) > (best[k].season||0)) best[k] = s; });
-  const list = Object.values(best).sort((a,b) => b.added - a.added);
+  const list = Object.values(best).sort((a,b) => (total(b).views - total(a).views) || (b.added - a.added));   // most viewed first (the whole show), then newest
   $('#empty').hidden = list.length > 0;
   $('#grid').innerHTML = list.map(s => { const n = seasonsOf(s).length;
     return `<div class="card" data-c="${esc(s.code)}">${poster(s)}
