@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795598505,
+ "updated": 1795598782,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -792,12 +792,12 @@
    "title": "ការរស់រានមានជិវិតក្នុងឆ្នាំ1977",
    "title_en": "1977 Survival",
    "intro": "",
-   "tab": "modern",
+   "tab": "new",
    "poster": "posters/S1.jpg",
    "eps": 100,
-   "free_eps": null,
-   "price": null,
-   "free_on": null,
+   "free_eps": 50,
+   "price": "$0.25",
+   "free_on": "02/12",
    "added": 1795476445,
    "show": "S1",
    "season": 0,
@@ -816,7 +816,7 @@
      "n": 2,
      "eps": "51-100",
      "min": 48,
-     "locked": false
+     "locked": true
     }
    ]
   }
