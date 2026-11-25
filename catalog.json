@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795613363,
+ "updated": 1795613469,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S13",
+   "title": "ត្រឡប់ទៅកាន់ទសវត្សរ៍ ៨០ ខ្ញុំថែទាំអ្នកម្តាយនិងកូនប្រុសដូចជាក",
+   "title_en": "",
+   "intro": "",
+   "tab": "modern",
+   "poster": "posters/S13.jpg",
+   "eps": 20,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795613363,
+   "show": "S13",
+   "season": 1,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-20",
+     "min": 23,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S9",
    "title": "ព្រះអង្គម្ចាស់ទី6 នគរមហាឈាន",
