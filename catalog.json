@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795625831,
+ "updated": 1795625855,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -1164,39 +1164,6 @@
      "n": 7,
      "eps": "121-130",
      "min": 10,
-     "locked": false
-    }
-   ]
-  },
-  {
-   "code": "S1",
-   "title": "ត្រឡប់ទៅឆ្នាំ1977វិញ៖ ចាប់ផ្ដើមពីកាំភ្លើងបរបាញ់",
-   "title_en": "1977 Survival",
-   "intro": "",
-   "tab": "modern",
-   "poster": "posters/S1.jpg",
-   "eps": 100,
-   "free_eps": null,
-   "price": null,
-   "free_on": null,
-   "added": 1795476445,
-   "show": "S1",
-   "season": 0,
-   "views": 5,
-   "likes": 1,
-   "comments": 0,
-   "post": 2,
-   "parts": [
-    {
-     "n": 1,
-     "eps": "1-50",
-     "min": 48,
-     "locked": false
-    },
-    {
-     "n": 2,
-     "eps": "51-100",
-     "min": 48,
      "locked": false
     }
    ]
