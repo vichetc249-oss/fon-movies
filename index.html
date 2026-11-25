@@ -97,7 +97,7 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 let ASKED = false;
-function open(payload){
+function openBot(payload){
   const url = `https://t.me/${DATA.bot}?start=${payload}`;
   if (tg && tg.openTelegramLink) {
     const go = () => { tg.openTelegramLink(url); tg.close && setTimeout(()=>tg.close(), 300); };
@@ -192,12 +192,12 @@ function sheet(code){
         `<button class="${x.code===s.code?'on':''}" onclick="sheet('${esc(x.code)}')">${sname(x, i)}</button>`).join('')}</div>` : ''; })()}
     <div class="parts">${s.parts.map(p => `<button class="part ${p.locked?'lock':''}" data-n="${p.n}">
         <span class="ic">${p.locked?'🔒':'▶'}</span><span><b>វីដេអូទី ${p.n}</b><small>${p.eps ? 'ភាគ '+esc(p.eps) : ''}${p.min ? ' · '+p.min+' នាទី' : ''}</small></span></button>`).join('')}</div>
-    ${anyLock ? `<button class="buy" onclick="open('buy_${esc(s.code)}')">🔓 មើលទាំងអស់ឥឡូវនេះ — ${esc(s.price)} (KHQR)</button>` : ''}
+    ${anyLock ? `<button class="buy" onclick="openBot('buy_${esc(s.code)}')">🔓 មើលទាំងអស់ឥឡូវនេះ — ${esc(s.price)} (KHQR)</button>` : ''}
     <button class="talk" onclick="share('${esc(s.code)}')">📤 ចែករំលែករឿងនេះ — Facebook · Telegram · Messenger…</button>
     ${s.post && DATA.channel ? `<button class="talk" onclick="comments(${s.post})">💬 មតិយោបល់${s.comments ? ' ('+fmt(s.comments)+')' : ''} — សរសេរមតិ</button>` : ''}`;
   document.querySelectorAll('.part').forEach(b => b.onclick = () => {
     const p = s.parts.find(x => x.n == b.dataset.n);
-    open(p.locked ? `buy_${s.code}` : `w_${s.code}_${p.n}`);
+    openBot(p.locked ? `buy_${s.code}` : `w_${s.code}_${p.n}`);
   });
   $('#sheet').classList.add('on');
   if (tg && tg.BackButton) { tg.BackButton.show(); tg.BackButton.onClick(hide); }
