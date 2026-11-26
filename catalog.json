@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795727387,
+ "updated": 1795727412,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -150,7 +150,7 @@
    "title": "បទចម្រៀងស្នេហាឆ្នាំ ៨០",
    "title_en": "",
    "intro": "",
-   "tab": "ancient",
+   "tab": "modern",
    "poster": "posters/S15.jpg?v=1795719628",
    "eps": 324,
    "free_eps": null,
