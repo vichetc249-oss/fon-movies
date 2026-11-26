@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795721781,
+ "updated": 1795721906,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S59",
+   "title": "បុរសដែលនាងមើលងាយ បែរជាអ្នកការពារគ្រួសារនាង",
+   "title_en": "",
+   "intro": "长相张扬、留着黄头发的陆野，经营一间摩托车修理铺，和导购苏念真心相爱。初次登门就遭到岳母苏桂兰的强烈反对。消失十二年的岳父突然归来，图谋房产，还四处散播流言。陆野挺身而出，守住一家人安稳。同时他还要应对生意上的恶意竞争，历经兄弟误会、亲情考验。没有超能力加持，普通人陆野凭着本心与韧劲，化解重重风波，赢得家人认可，奋斗出属于自己的温暖人生。",
+   "tab": "modern",
+   "poster": "posters/S59.jpg?v=1795721781",
+   "eps": 148,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795721781,
+   "show": "S59",
+   "season": 0,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-20",
+     "min": 20,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S15",
    "title": "បទចម្រៀងស្នេហាឆ្នាំ ៨០",
@@ -24,7 +51,7 @@
    "views": 0,
    "likes": 0,
    "comments": 0,
-   "post": 0,
+   "post": 11,
    "parts": [
     {
      "n": 1,
@@ -1479,7 +1506,7 @@
    "added": 1795605217,
    "show": "S7",
    "season": 3,
-   "views": 140,
+   "views": 141,
    "likes": 5,
    "comments": 0,
    "post": 6,
@@ -2460,7 +2487,7 @@
    "added": 1795573629,
    "show": "S3",
    "season": 1,
-   "views": 13,
+   "views": 14,
    "likes": 0,
    "comments": 0,
    "post": 0,
