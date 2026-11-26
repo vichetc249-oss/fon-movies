@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795711307,
+ "updated": 1795711460,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -102,6 +102,12 @@
      "n": 13,
      "eps": "253-273",
      "min": 15,
+     "locked": false
+    },
+    {
+     "n": 14,
+     "eps": "274-294",
+     "min": 14,
      "locked": false
     }
    ]
@@ -402,8 +408,8 @@
    "added": 1795666255,
    "show": "S0",
    "season": 0,
-   "views": 69,
-   "likes": 8,
+   "views": 74,
+   "likes": 9,
    "comments": 0,
    "post": 0,
    "parts": [
@@ -522,7 +528,7 @@
    "added": 1795657245,
    "show": "S3",
    "season": 2,
-   "views": 5,
+   "views": 6,
    "likes": 0,
    "comments": 0,
    "post": 0,
@@ -735,7 +741,7 @@
    "added": 1795628933,
    "show": "S13",
    "season": 2,
-   "views": 18,
+   "views": 20,
    "likes": 0,
    "comments": 0,
    "post": 7,
@@ -1023,7 +1029,7 @@
    "added": 1795605217,
    "show": "S7",
    "season": 3,
-   "views": 61,
+   "views": 63,
    "likes": 4,
    "comments": 0,
    "post": 6,
@@ -1458,7 +1464,7 @@
    "added": 1795588729,
    "show": "S32",
    "season": 6,
-   "views": 20,
+   "views": 21,
    "likes": 1,
    "comments": 0,
    "post": 5,
