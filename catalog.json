@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795727440,
+ "updated": 1795727534,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -12,7 +12,7 @@
    "title": "តម្លៃនៃការលួចអាហារកុម្ម៉ង់",
    "title_en": "",
    "intro": "",
-   "tab": "ancient",
+   "tab": "modern",
    "poster": "posters/S60.jpg?v=1795723297",
    "eps": 142,
    "free_eps": null,
@@ -1617,7 +1617,7 @@
    "added": 1795605217,
    "show": "S7",
    "season": 3,
-   "views": 150,
+   "views": 151,
    "likes": 5,
    "comments": 0,
    "post": 6,
