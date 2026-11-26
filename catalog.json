@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795723331,
+ "updated": 1795723428,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S60",
+   "title": "តម្លៃនៃការលួចអាហារកុម្ម៉ង់",
+   "title_en": "",
+   "intro": "",
+   "tab": "ancient",
+   "poster": "posters/S60.jpg?v=1795723297",
+   "eps": 20,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795723297,
+   "show": "S60",
+   "season": 0,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-20",
+     "min": 21,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S59",
    "title": "បុរសដែលនាងមើលងាយ បែរជាអ្នកការពារគ្រួសារនាង",
