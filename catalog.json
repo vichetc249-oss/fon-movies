@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795688025,
+ "updated": 1795688114,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S55",
+   "title": "បន្លែដាំក្នុងភ្នំ លក់ដាច់ខ្លាំងក្នុងក្រុង",
+   "title_en": "",
+   "intro": "",
+   "tab": "ancient",
+   "poster": "posters/S55.jpg?v=1795688025",
+   "eps": 18,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795688025,
+   "show": "S55",
+   "season": 0,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-18",
+     "min": 20,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S0",
    "title": "កងកម្លាំងពិសេស ឆ្លលពេលវេលា",
