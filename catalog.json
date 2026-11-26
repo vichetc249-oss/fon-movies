@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795651732,
+ "updated": 1795652176,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -12,7 +12,7 @@
    "title": "បក្សាស្លាបដែក",
    "title_en": "",
    "intro": "",
-   "tab": "ancient",
+   "tab": "modern",
    "poster": "posters/S10.jpg",
    "eps": 171,
    "free_eps": null,
