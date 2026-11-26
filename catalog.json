@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795666255,
+ "updated": 1795666358,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S0",
+   "title": "កងកម្លាំងពិសេស ឆ្លលពេលវេលា",
+   "title_en": "",
+   "intro": "",
+   "tab": "ancient",
+   "poster": "posters/S0.jpg?v=1795666255",
+   "eps": 20,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795666255,
+   "show": "S0",
+   "season": 0,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-20",
+     "min": 24,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S54",
    "title": "លូមីកំពូលស្នេហ៍បង",
