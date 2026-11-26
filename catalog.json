@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795727412,
+ "updated": 1795727440,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -924,7 +924,7 @@
    "title": "បន្លែដាំក្នុងភ្នំ លក់ដាច់ខ្លាំងក្នុងក្រុង",
    "title_en": "",
    "intro": "",
-   "tab": "ancient",
+   "tab": "modern",
    "poster": "posters/S55.jpg?v=1795688025",
    "eps": 126,
    "free_eps": null,
