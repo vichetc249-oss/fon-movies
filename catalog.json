@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795714469,
+ "updated": 1795714564,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S24",
+   "title": "ទាហានព្រំដែនកំទេចសត្រូវ ក្លាយជាស្តេច",
+   "title_en": "",
+   "intro": "边关悍卒陈九以数十精兵镇守危城，面对数倍强敌，凭火器、奇谋与铁血胆魄屡破敌阵。他严明军纪、善待俘虏、体恤百姓，推动互市兴军，誓让边境止戈安宁。然而朝堂暗流涌动，内奸潜伏，新的阴谋悄然逼近。陈九与生死弟兄并肩，既要守住杀狼谷，更要揪出幕后黑手。铁血铸边关，仁义定人心，且看少年将军如何破局。",
+   "tab": "ancient",
+   "poster": "posters/S24.jpg?v=1795714469",
+   "eps": 263,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795714469,
+   "show": "S57",
+   "season": 2,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-21",
+     "min": 23,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S58",
    "title": "ធ្វើចំការក្នុងពិភពអមត",
@@ -84,7 +111,7 @@
    "added": 1795710277,
    "show": "S57",
    "season": 1,
-   "views": 17,
+   "views": 18,
    "likes": 1,
    "comments": 0,
    "post": 9,
@@ -864,7 +891,7 @@
    "added": 1795628933,
    "show": "S13",
    "season": 2,
-   "views": 39,
+   "views": 40,
    "likes": 0,
    "comments": 0,
    "post": 7,
