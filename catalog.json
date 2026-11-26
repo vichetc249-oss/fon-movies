@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795721564,
+ "updated": 1795721668,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -14,7 +14,7 @@
    "intro": "",
    "tab": "ancient",
    "poster": "posters/S15.jpg?v=1795719628",
-   "eps": 280,
+   "eps": 300,
    "free_eps": null,
    "price": null,
    "free_on": null,
@@ -108,6 +108,12 @@
      "n": 14,
      "eps": "261-280",
      "min": 19,
+     "locked": false
+    },
+    {
+     "n": 15,
+     "eps": "281-300",
+     "min": 17,
      "locked": false
     }
    ]
@@ -1896,7 +1902,7 @@
    "added": 1795588729,
    "show": "S32",
    "season": 6,
-   "views": 48,
+   "views": 49,
    "likes": 2,
    "comments": 0,
    "post": 5,
