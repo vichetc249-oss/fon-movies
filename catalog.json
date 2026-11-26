@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795716859,
+ "updated": 1795717024,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S14",
+   "title": "ចាប់កូនចិញ្ចឹមមកធ្វើជាម្តាយចិញ្ចឹម",
+   "title_en": "",
+   "intro": "",
+   "tab": "ancient",
+   "poster": "posters/S14.jpg?v=1795716859",
+   "eps": 20,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795716859,
+   "show": "S14",
+   "season": 1,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-20",
+     "min": 38,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S24",
    "title": "ទាហានព្រំដែនកំទេចសត្រូវ ក្លាយជាស្តេច",
@@ -1251,7 +1278,7 @@
    "added": 1795605217,
    "show": "S7",
    "season": 3,
-   "views": 130,
+   "views": 131,
    "likes": 4,
    "comments": 0,
    "post": 6,
@@ -2232,7 +2259,7 @@
    "added": 1795573629,
    "show": "S3",
    "season": 1,
-   "views": 9,
+   "views": 10,
    "likes": 0,
    "comments": 0,
    "post": 0,
