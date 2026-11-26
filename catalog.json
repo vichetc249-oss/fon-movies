@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795652288,
+ "updated": 1795652330,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -1416,69 +1416,6 @@
      "n": 8,
      "eps": "141-158",
      "min": 20,
-     "locked": false
-    }
-   ]
-  },
-  {
-   "code": "S2",
-   "title": "បក្សាស្លាបដែក",
-   "title_en": "",
-   "intro": "",
-   "tab": "modern",
-   "poster": "posters/S2.jpg",
-   "eps": 130,
-   "free_eps": null,
-   "price": null,
-   "free_on": null,
-   "added": 1795564178,
-   "show": "S1",
-   "season": 2,
-   "views": 12,
-   "likes": 0,
-   "comments": 0,
-   "post": 3,
-   "parts": [
-    {
-     "n": 1,
-     "eps": "1-20",
-     "min": 30,
-     "locked": false
-    },
-    {
-     "n": 2,
-     "eps": "21-40",
-     "min": 18,
-     "locked": false
-    },
-    {
-     "n": 3,
-     "eps": "41-60",
-     "min": 18,
-     "locked": false
-    },
-    {
-     "n": 4,
-     "eps": "61-80",
-     "min": 21,
-     "locked": false
-    },
-    {
-     "n": 5,
-     "eps": "81-100",
-     "min": 21,
-     "locked": false
-    },
-    {
-     "n": 6,
-     "eps": "101-120",
-     "min": 22,
-     "locked": false
-    },
-    {
-     "n": 7,
-     "eps": "121-130",
-     "min": 10,
      "locked": false
     }
    ]
