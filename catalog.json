@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795712294,
+ "updated": 1795712388,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S58",
+   "title": "ធ្វើចំការក្នុងពិភពអមត",
+   "title_en": "",
+   "intro": "少女秦臻被判定无灵根，却觉醒万物生机的特殊天赋，能够与草木对话共生。秦家不畏艰险举家踏入修真界，靠耕耘灵田踏实立足。姐妹二人机缘进入青木秘境，秦臻与秘境之灵缔结契约，走出独属于自己的修行道路。一家人彼此扶持，以勤恳与善良对抗重重磨难，在历练中坚守本心，努力耕耘，一步步向着建设长生世家的理想奋力前行。",
+   "tab": "ancient",
+   "poster": "posters/S58.jpg?v=1795712294",
+   "eps": 140,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795712294,
+   "show": "S58",
+   "season": 0,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-20",
+     "min": 21,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S57",
    "title": "ទាហានព្រំដែនកំទេចសត្រូវ ក្លាយជាស្តេច",
@@ -21,10 +48,10 @@
    "added": 1795710277,
    "show": "S57",
    "season": 0,
-   "views": 9,
+   "views": 10,
    "likes": 0,
    "comments": 0,
-   "post": 0,
+   "post": 9,
    "parts": [
     {
      "n": 1,
@@ -1089,7 +1116,7 @@
    "added": 1795605217,
    "show": "S7",
    "season": 3,
-   "views": 83,
+   "views": 89,
    "likes": 4,
    "comments": 0,
    "post": 6,
@@ -1524,7 +1551,7 @@
    "added": 1795588729,
    "show": "S32",
    "season": 6,
-   "views": 28,
+   "views": 29,
    "likes": 1,
    "comments": 0,
    "post": 5,
