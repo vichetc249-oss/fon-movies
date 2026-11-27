@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795754692,
+ "updated": 1795754721,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -14,7 +14,7 @@
    "intro": "",
    "tab": "ancient",
    "poster": "posters/S63.jpg?v=1795754194",
-   "eps": 60,
+   "eps": 80,
    "free_eps": null,
    "price": null,
    "free_on": null,
@@ -42,6 +42,12 @@
      "n": 3,
      "eps": "41-60",
      "min": 34,
+     "locked": false
+    },
+    {
+     "n": 4,
+     "eps": "61-80",
+     "min": 30,
      "locked": false
     }
    ]
