@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795788587,
+ "updated": 1795788750,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S43",
+   "title": "មេជាងមេកានិច ឆ្លងភព",
+   "title_en": "",
+   "intro": "现代穿越者金锋立足大康西河湾，凭借现代技术与智谋平息匪患、稳固势力，更通过精盐、水泥等发明富民强兵。在朝堂博弈与边患危机中，金锋邂逅微服和亲的九公主舞阳。面对内忧外患的乱世，金锋从一介寒门布衣崛起，与心怀社稷的九公主携手，在步步为营中开启了寒门枭雄定天下的壮阔征途。",
+   "tab": "ancient",
+   "poster": "posters/S43.jpg?v=1795788575",
+   "eps": 126,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795788575,
+   "show": "S43",
+   "season": 4,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-21",
+     "min": 41,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S67",
    "title": "ឃ្លោកប្រឆាំងមេឃ",
@@ -2760,7 +2787,7 @@
    "added": 1795582426,
    "show": "S32",
    "season": 3,
-   "views": 24,
+   "views": 25,
    "likes": 1,
    "comments": 0,
    "post": 5,
