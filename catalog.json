@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795802427,
+ "updated": 1795802550,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S25",
+   "title": "បីសាចគីង្គក់លេបមេឃ ម៉ូហ្វាន",
+   "title_en": "",
+   "intro": "",
+   "tab": "ancient",
+   "poster": "posters/S25.jpg?v=1795802427",
+   "eps": 19,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795802427,
+   "show": "S25",
+   "season": 2,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-19",
+     "min": 28,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S510",
    "title": "មេជាងមេកានិច ឆ្លងភព",
@@ -2880,7 +2907,7 @@
    "added": 1795582426,
    "show": "S32",
    "season": 3,
-   "views": 30,
+   "views": 31,
    "likes": 1,
    "comments": 0,
    "post": 5,
