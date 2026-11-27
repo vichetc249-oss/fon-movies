@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795775087,
+ "updated": 1795775205,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -12,7 +12,7 @@
    "title": "តួអង្គអាក្រក់ទាំងអស់គឺជាកូនរបស់ខ្ញុំ",
    "title_en": "",
    "intro": "",
-   "tab": "ancient",
+   "tab": "modern",
    "poster": "posters/S63.jpg?v=1795754194",
    "eps": 130,
    "free_eps": null,
