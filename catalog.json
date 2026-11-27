@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795751073,
+ "updated": 1795751102,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S62",
+   "title": "ប្រព័ន្ធនៃការក្បត់ចិត្ត",
+   "title_en": "",
+   "intro": "",
+   "tab": "modern",
+   "poster": "posters/S62.jpg?v=1795750964",
+   "eps": 20,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795750964,
+   "show": "S62",
+   "season": 0,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-20",
+     "min": 35,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S61",
    "title": "ឃ្លោកបណ្តុះវិញ្ញាណ",
