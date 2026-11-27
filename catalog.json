@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795740914,
+ "updated": 1795740961,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S61",
+   "title": "ឃ្លោកបណ្តុះវិញ្ញាណ",
+   "title_en": "",
+   "intro": "",
+   "tab": "ancient",
+   "poster": "posters/S61.jpg?v=1795740683",
+   "eps": 21,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795740683,
+   "show": "S61",
+   "season": 0,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-21",
+     "min": 46,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S60",
    "title": "តម្លៃនៃការលួចអាហារកុម្ម៉ង់",
@@ -996,7 +1023,7 @@
    "added": 1795666255,
    "show": "S0",
    "season": 0,
-   "views": 172,
+   "views": 173,
    "likes": 17,
    "comments": 0,
    "post": 0,
