@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795781606,
+ "updated": 1795781817,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S64",
+   "title": "ឃ្លោកប្រឆាំងមេឃ",
+   "title_en": "",
+   "intro": "",
+   "tab": "ancient",
+   "poster": "posters/S64.jpg?v=1795781606",
+   "eps": 20,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795781605,
+   "show": "S64",
+   "season": 0,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-20",
+     "min": 57,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S63",
    "title": "តួអង្គអាក្រក់ទាំងអស់គឺជាកូនរបស់ខ្ញុំ",
@@ -1149,8 +1176,8 @@
    "added": 1795666255,
    "show": "S0",
    "season": 0,
-   "views": 306,
-   "likes": 28,
+   "views": 309,
+   "likes": 29,
    "comments": 0,
    "post": 0,
    "parts": [
