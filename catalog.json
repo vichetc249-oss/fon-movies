@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795797387,
+ "updated": 1795797479,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S510",
+   "title": "មេជាងមេកានិច ឆ្លងភព",
+   "title_en": "",
+   "intro": "穿越者金锋以现代技术兴实业、建基业，与胸怀社稷的九公主深度结盟。外族撕毁和亲大举进犯西川，金锋临危受命出任护卫统领，凭水攻歼敌、疲敌乱营、神光破军心等奇策屡破强敌，解帽儿山重围，夺敌战马重创敌锋。他心系百姓、智计迭出，于烽火暗流中护佑一方，并开启逐鹿天下棋局。",
+   "tab": "ancient",
+   "poster": "posters/S510.jpg?v=1795797387",
+   "eps": 122,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795797387,
+   "show": "S43",
+   "season": 5,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-18",
+     "min": 24,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S43",
    "title": "មេជាងមេកានិច ឆ្លងភព",
@@ -1435,7 +1462,7 @@
    "show": "S0",
    "season": 0,
    "views": 323,
-   "likes": 29,
+   "likes": 30,
    "comments": 0,
    "post": 0,
    "parts": [
