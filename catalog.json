@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795781998,
+ "updated": 1795782227,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -14,7 +14,7 @@
    "intro": "",
    "tab": "ancient",
    "poster": "posters/S64.jpg?v=1795781606",
-   "eps": 40,
+   "eps": 60,
    "free_eps": null,
    "price": null,
    "free_on": null,
@@ -36,6 +36,12 @@
      "n": 2,
      "eps": "21-40",
      "min": 48,
+     "locked": false
+    },
+    {
+     "n": 3,
+     "eps": "41-60",
+     "min": 57,
      "locked": false
     }
    ]
@@ -1803,7 +1809,7 @@
    "added": 1795605217,
    "show": "S7",
    "season": 3,
-   "views": 478,
+   "views": 480,
    "likes": 17,
    "comments": 0,
    "post": 6,
