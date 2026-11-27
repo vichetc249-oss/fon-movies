@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795782906,
+ "updated": 1795783047,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S65",
+   "title": "ឃ្លោកប្រឆាំងមេឃ",
+   "title_en": "",
+   "intro": "",
+   "tab": "ancient",
+   "poster": "posters/S65.jpg?v=1795782906",
+   "eps": 20,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795782906,
+   "show": "S64",
+   "season": 2,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-20",
+     "min": 34,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S64",
    "title": "ឃ្លោកប្រឆាំងមេឃ",
@@ -1527,7 +1554,7 @@
    "added": 1795628933,
    "show": "S13",
    "season": 2,
-   "views": 50,
+   "views": 51,
    "likes": 1,
    "comments": 0,
    "post": 7,
@@ -2577,7 +2604,7 @@
    "added": 1795582426,
    "show": "S32",
    "season": 3,
-   "views": 22,
+   "views": 23,
    "likes": 1,
    "comments": 0,
    "post": 5,
