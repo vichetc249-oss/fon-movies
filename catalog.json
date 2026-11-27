@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795817736,
+ "updated": 1795817949,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S34",
+   "title": "ឃ្លោកបណ្តុះវិញ្ញាណ",
+   "title_en": "",
+   "intro": "张二苟在守护小娥子与乡亲的过程中，逐步化解接连而来的危机，也在蛇口山深处发现一段尘封往事。此后，他与鹅王、羽山和常灵儿相互扶持，研习药理与器物技艺，稳步提升能力；面对故地隐患和乡里困境，他坚持查明真相、妥善帮助村民，带领众人修水渠、兴农田、护家园，在责任与成长中开启新的山野旅程。",
+   "tab": "ancient",
+   "poster": "posters/S34.jpg?v=1795817736",
+   "eps": 140,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795817736,
+   "show": "S61",
+   "season": 3,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-20",
+     "min": 30,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S26",
    "title": "ឃ្លោកបណ្តុះវិញ្ញាណ",
@@ -1479,7 +1506,7 @@
    "added": 1795704709,
    "show": "S56",
    "season": 0,
-   "views": 39,
+   "views": 40,
    "likes": 0,
    "comments": 0,
    "post": 6,
