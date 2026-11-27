@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795803939,
+ "updated": 1795804052,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S511",
+   "title": "បីសាចគីង្គក់លេបមេឃ ម៉ូហ្វាន",
+   "title_en": "",
+   "intro": "",
+   "tab": "ancient",
+   "poster": "posters/S511.jpg?v=1795803939",
+   "eps": 20,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795803939,
+   "show": "S25",
+   "season": 1,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-20",
+     "min": 25,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S25",
    "title": "បីសាចគីង្គក់លេបមេឃ ម៉ូហ្វាន",
