@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795862828,
+ "updated": 1795862834,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -36,6 +36,12 @@
      "n": 2,
      "eps": "21-40",
      "min": 23,
+     "locked": false
+    },
+    {
+     "n": 3,
+     "eps": "41-60",
+     "min": 25,
      "locked": false
     }
    ]
@@ -2151,7 +2157,7 @@
    "added": 1795666255,
    "show": "S0",
    "season": 0,
-   "views": 379,
+   "views": 380,
    "likes": 33,
    "comments": 0,
    "post": 0,
