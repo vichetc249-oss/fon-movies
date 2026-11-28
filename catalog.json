@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795824360,
+ "updated": 1795824542,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S512",
+   "title": "ខ្មោចឆៅគួរអោយស្រលាញ់",
+   "title_en": "",
+   "intro": "末世来临，涂三七被丧尸咬伤后觉醒异能，能听懂丧尸语言。她进入第五特区学校，结识严霜、费雨城等人，隐瞒丧尸身份。偶遇高级丧尸扶桑，得知感染源于特区研究院实验。她和费雨城研发异能武器，为遭陷害断臂的费雨城打造机械臂，二人获得参赛资格，她的秘密却濒临暴露。",
+   "tab": "modern",
+   "poster": "posters/S512.jpg?v=1795824360",
+   "eps": 127,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795824360,
+   "show": "S512",
+   "season": 0,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-19",
+     "min": 26,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S34",
    "title": "ឃ្លោកបណ្តុះវិញ្ញាណ",
