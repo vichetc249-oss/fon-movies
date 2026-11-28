@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795861733,
+ "updated": 1795861787,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -35,6 +35,12 @@
     {
      "n": 2,
      "eps": "19-36",
+     "min": 13,
+     "locked": false
+    },
+    {
+     "n": 3,
+     "eps": "37-54",
      "min": 13,
      "locked": false
     }
@@ -636,7 +642,7 @@
    "added": 1795797387,
    "show": "S43",
    "season": 5,
-   "views": 29,
+   "views": 30,
    "likes": 0,
    "comments": 0,
    "post": 17,
