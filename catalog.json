@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795864322,
+ "updated": 1795864436,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -14,7 +14,7 @@
    "intro": "",
    "tab": "ancient",
    "poster": "posters/S16.jpg?v=1795863785",
-   "eps": 109,
+   "eps": 127,
    "free_eps": null,
    "price": null,
    "free_on": null,
@@ -60,6 +60,12 @@
      "n": 6,
      "eps": "92-109",
      "min": 21,
+     "locked": false
+    },
+    {
+     "n": 7,
+     "eps": "110-127",
+     "min": 25,
      "locked": false
     }
    ]
@@ -1617,7 +1623,7 @@
    "added": 1795714469,
    "show": "S57",
    "season": 2,
-   "views": 72,
+   "views": 73,
    "likes": 3,
    "comments": 0,
    "post": 9,
@@ -2847,7 +2853,7 @@
    "added": 1795605217,
    "show": "S7",
    "season": 3,
-   "views": 637,
+   "views": 642,
    "likes": 19,
    "comments": 0,
    "post": 6,
@@ -3111,7 +3117,7 @@
    "added": 1795593621,
    "show": "S7",
    "season": 2,
-   "views": 51,
+   "views": 53,
    "likes": 2,
    "comments": 0,
    "post": 6,
