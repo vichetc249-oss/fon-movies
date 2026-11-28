@@ -1,6 +1,6 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795830831,
+ "updated": 1795830898,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
@@ -66,6 +66,12 @@
      "n": 7,
      "eps": "115-133",
      "min": 14,
+     "locked": false
+    },
+    {
+     "n": 8,
+     "eps": "134-151",
+     "min": 16,
      "locked": false
     }
    ]
@@ -2571,7 +2577,7 @@
    "added": 1795605217,
    "show": "S7",
    "season": 3,
-   "views": 542,
+   "views": 543,
    "likes": 17,
    "comments": 0,
    "post": 6,
