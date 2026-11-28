@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795863785,
+ "updated": 1795863885,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S16",
+   "title": "អធិរាជ|ពិតប្រាកដ",
+   "title_en": "",
+   "intro": "",
+   "tab": "ancient",
+   "poster": "posters/S16.jpg?v=1795863785",
+   "eps": 19,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795863785,
+   "show": "S518",
+   "season": 1,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-19",
+     "min": 23,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S518",
    "title": "អធិរាជ|ពិតប្រាកដ",
@@ -3225,7 +3252,7 @@
    "added": 1795588729,
    "show": "S32",
    "season": 6,
-   "views": 224,
+   "views": 225,
    "likes": 6,
    "comments": 0,
    "post": 5,
