@@ -1,12 +1,39 @@
 {
  "bot": "vipmoviekh_bot",
- "updated": 1795831497,
+ "updated": 1795831567,
  "tabs": {
   "ancient": "រឿងបុរាណ",
   "modern": "រឿងសម័យ",
   "new": "រឿងថ្មី"
  },
  "series": [
+  {
+   "code": "S514",
+   "title": "រកការពិតពីវិក្កយបត្រទូទាត់",
+   "title_en": "",
+   "intro": "公公突发心梗送入抢救室，婆婆急忙让林晓梅拿出四万元救治。林晓梅表示手头仅有七千余元，称多年一直在帮丈夫偿还房贷。婆婆的一番话揭开实情婚房本就是全款购置，当初五十八万彩礼早已被丈夫私自截留。突如其来的真相，让林晓梅看清婚姻里的隐瞒，她冷静面对这场风波，认真考量往后的人生选择。",
+   "tab": "modern",
+   "poster": "posters/S514.jpg?v=1795831497",
+   "eps": 57,
+   "free_eps": null,
+   "price": null,
+   "free_on": null,
+   "added": 1795831497,
+   "show": "S514",
+   "season": 0,
+   "views": 0,
+   "likes": 0,
+   "comments": 0,
+   "post": 0,
+   "parts": [
+    {
+     "n": 1,
+     "eps": "1-19",
+     "min": 16,
+     "locked": false
+    }
+   ]
+  },
   {
    "code": "S513",
    "title": "ស៊ាវអានតាមរកគ្រួសារ",
